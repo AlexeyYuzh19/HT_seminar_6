@@ -13,7 +13,7 @@ int CheckInputNumber(string Text)
 
     int number;
     string text;
-    
+
     while (true)
     {
         Console.Write(Text);
@@ -29,44 +29,44 @@ int CheckInputNumber(string Text)
     return number;
 }
 
-int[] ARRAY()
+int[] Array()
 {
-   int M = CheckInputNumber("Задайте количество чисел для ввода : ");
-   
-   int[] arr = new int[M];
-   
-   for(int i = 0; i < M ; i++)
-   {
-      arr[i] =CheckInputNumber($"Введите {i+1}-й элемент : ");
-   }
-   return arr;
+    int M = CheckInputNumber("Задайте количество чисел для ввода : ");
+
+    int[] arr = new int[M];
+
+    for (int i = 0; i < M; i++)
+    {
+        arr[i] = CheckInputNumber($"Введите {i + 1}-й элемент : ");
+    }
+    return arr;
 }
 
 void NumMoreNull(int[] array, out int Numbers)
-{ 
-   Numbers = 0;
-   
-   for (int i = 0; i < array.Length; i++)
-   {
-      if (array[i] > 0)
-      { 
-        Console.ForegroundColor = ConsoleColor.Green;
-        System.Console.Write(array[i]);
-        Console.ResetColor();
-        System.Console.Write(" | ");
-        Numbers++;
-      }
-      else 
-      {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        System.Console.Write(array[i]);
-        Console.ResetColor();
-        System.Console.Write(" | ");
-      }    
-   }
+{
+    Numbers = 0;
+
+    foreach (int ari in array)
+    {
+        if (ari > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.Write(ari);
+            Console.ResetColor();
+            System.Console.Write(" | ");
+            Numbers++;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            System.Console.Write(ari);
+            Console.ResetColor();
+            System.Console.Write(" | ");
+        }
+    }
 }
 
-int[] array = ARRAY();
+int[] array = Array();
 
 System.Console.WriteLine("\nВведены следующие значения чисел : \n");
 
