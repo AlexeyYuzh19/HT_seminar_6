@@ -4,24 +4,74 @@
 1, -7, 567, 89, 223-> 3
 */
 
+Console.Clear();
 Console.WriteLine("Hello, World!");
 
-/*   Вариант введения массива в одну строку, но в диапазоне от 0 до 9
-
-int i;
-int[] a = new int[8];
-Console.WriteLine("Введите массив чисел: ");
-for (i = 0; i < 8; i++)
+int CheckInputNumber(string Text)
 {
-a[i] = Console.ReadKey().KeyChar - '0';
-Console.Write(", ");
+    Console.ForegroundColor = ConsoleColor.Blue;
+
+    int number;
+    string text;
+    
+    while (true)
+    {
+        Console.Write(Text);
+        text = Console.ReadLine();
+
+        if (int.TryParse(text, out number)) break;
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Заданное значение числа не соответствует критерию, попробуйте еще раз.");
+        Console.ResetColor();
+    }
+    Console.ResetColor();
+    return number;
 }
-System.Console.WriteLine("\n[ " + string.Join(" , ", a) + " ]");
-*/
 
-/*  Вариант введения массива в одну строку с разделением значений запятой:
+int[] ARRAY()
+{
+   int M = CheckInputNumber("Задайте количество чисел для ввода : ");
+   
+   int[] arr = new int[M];
+   
+   for(int i = 0; i < M ; i++)
+   {
+      arr[i] =CheckInputNumber($"Введите {i+1}-й элемент : ");
+   }
+   return arr;
+}
 
-int[] ar = Console.ReadLine().Split(new char[]{','}, 
-StringSplitOptions.RemoveEmptyEntries).Select(i=>int.Parse(i)).ToArray<int>();
-System.Console.WriteLine("\n[ " + string.Join(" , ", ar) + " ]");
-*/
+void NumMoreNull(int[] array, out int Numbers)
+{ 
+   Numbers = 0;
+   
+   for (int i = 0; i < array.Length; i++)
+   {
+      if (array[i] > 0)
+      { 
+        Console.ForegroundColor = ConsoleColor.Green;
+        System.Console.Write(array[i]);
+        Console.ResetColor();
+        System.Console.Write(" | ");
+        Numbers++;
+      }
+      else 
+      {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        System.Console.Write(array[i]);
+        Console.ResetColor();
+        System.Console.Write(" | ");
+      }    
+   }
+}
+
+int[] array = ARRAY();
+
+System.Console.WriteLine("\nВведены следующие значения чисел : \n");
+
+NumMoreNull(array, out int Numbers);
+
+Console.ForegroundColor = ConsoleColor.Red;
+System.Console.WriteLine($"\n\nB данном массиве чисел количество значений больше нуля = {Numbers}\n");
+Console.ResetColor();
