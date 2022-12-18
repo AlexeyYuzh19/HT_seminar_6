@@ -52,7 +52,7 @@ int[] MadeArray()
     for (int i = 0; i < M; i++)
     {
         arr[i] = CheckInputNumber($"Введите {i + 1}-й элемент : ");
-        if (arr[i] == 011 || i == 999) break;
+        if (arr[i] == 011) break;
         count++;
     }
 
