@@ -66,7 +66,6 @@ void NumMoreNull(int[] array, out int Numbers, out int arL)
     Numbers = 0;
     arL = array.Length;
 
-    //for (int i = 0; i < array.Length; i++)
     foreach (int ari in array)
     {
         if (ari > 0)
