@@ -51,8 +51,6 @@ void EnterCheckCoefficients(out double k1, out double k2)
     }
 }
 
-double X, Y;
-
 Console.ForegroundColor = ConsoleColor.Green;
 
 System.Console.WriteLine("\nОпределим координаты точки пересечения двух прямых, заданных уравнениями :\ny = k1 * x + b1, y = k2 * x + b2\n");
@@ -62,6 +60,8 @@ EnterCheckCoefficients(out double k1, out double k2);
 double b1 = CheckInputNumber("Задайте значение переменной уравнения b1 :");
 
 double b2 = CheckInputNumber("Задайте значение переменной уравнения b2 :");
+
+double X, Y;
 
 X = Math.Round(((b2 - b1) / (k1 - k2)), 2);
 
