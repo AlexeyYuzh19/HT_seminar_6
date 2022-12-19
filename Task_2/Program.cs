@@ -14,7 +14,6 @@ Console.Clear();
 Console.WriteLine("Hello, World!");
 
 double CheckInputNumber(string Text)
-
 {
     Console.ForegroundColor = ConsoleColor.Yellow;
 
@@ -35,7 +34,6 @@ double CheckInputNumber(string Text)
     Console.ResetColor();
     return number;
 }
-
 
 void EnterCheckCoefficients(out double k1, out double k2)
 {
